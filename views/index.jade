@@ -1,0 +1,78 @@
+extends layout
+
+block content
+  nav.navbar.navbar-default.navbar-static-top
+    .container-fluid
+      .navbar-header
+        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='#')
+          i(class='fa fa-list-alt')
+      ul.nav.navbar-nav.navbar-right
+        li
+          h4.navbar-text 
+            i(class='glyphicon glyphicon-user')  
+              span.user #{username}
+        li
+          a(href='/signout') Sign Out
+  .container
+    .row
+      .col-md-6
+        .panel.panel-warning.margin-top
+          #tasks.panel-heading
+            h3.panel-title.text-center Tasks
+          .panel-body
+            #accordion
+              h3 Health    
+                i(class="fa fa-medkit") 
+              div
+                ul.health
+              h3 Wealth    
+                i(class="fa fa-money")
+              div
+                ul.wealth
+              h3 Soul    
+                i(class="fa fa-child")
+              div
+                ul.soul
+      .col-md-6
+        .panel.panel-primary.margin-top
+          .panel-heading
+            h3.panel-title.text-center Daily Plan
+          .panel-body.daily
+            ol.placeholder Add your tasks here
+    .row
+      .col-md-4
+        #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+          .modal-dialog(role='document')
+            .modal-content
+              .modal-header
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                  span(aria-hidden='true') ×
+                h4#myModalLabel.modal-title.strong Add a Task
+              .modal-body
+                h4 Choose a Category
+                .input-group
+                  span.input-group-addon
+                    input(type='checkbox' value="health")
+                  input.form-control(type='text' value="health")
+                .input-group
+                  span.input-group-addon
+                    input(type='checkbox' value="wealth")
+                  input.form-control(type='text' value="wealth")
+                .input-group
+                  span.input-group-addon
+                    input(type='checkbox' value="soul")
+                  input.form-control(type='text' value="soul")
+                h4 Add a description
+                  textarea(id='description')
+              .modal-footer
+                button.btn.btn-default(type='button', data-dismiss='modal') Close
+                button.btn.btn-primary(id='add' type='button') Add Task
+        button.btn.btn-success.margin-top(type='button', data-toggle='modal', data-target='#myModal') Add a Task
+     
+
+            
