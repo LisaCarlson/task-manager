@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var db = require('monk')('localhost/tasks');
+var db = require('monk')(process.env.MONGOLAB_URI || 'localhost/tasks');
 var taskCollection = db.get('tasks');
 
 
